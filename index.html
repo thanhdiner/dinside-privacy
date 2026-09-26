@@ -18,15 +18,15 @@
     <div class="brand">DinSide</div>
     <h1>Privacy Policy</h1>
     <p class="muted">Last updated: September 26, 2026</p>
-    <p>DinSide is a Chrome extension that helps users bring relevant browser context into AI chat services they choose to use, including supported providers such as ChatGPT, Gemini, Google AI Mode, Google AI Studio, Claude, Perplexity, DeepSeek, OpenRouter, Microsoft Copilot, Qwen, Kimi, Meta AI, and Xiaomi MiMo Studio.</p>
+    <p>DinSide is a Chrome extension that helps users bring relevant browser context into AI chat services they choose to use, including supported providers such as ChatGPT, Gemini, Google AI Mode, Google AI Studio, Claude, Perplexity, DeepSeek, OpenRouter, Microsoft Copilot, Qwen, Kimi, Meta AI, Xiaomi MiMo Studio, and Z.ai.</p>
 
     <h2>Information DinSide processes</h2>
     <p>DinSide may process the following information only to provide its core functionality:</p>
     <ul>
       <li><strong>Web history data:</strong> page URLs, page titles, favicons, and information about browser tabs that the user chooses to include as context.</li>
       <li><strong>Website content:</strong> visible page text, selected text, page content, screenshots, and other webpage content that the user chooses to include as context.</li>
-      <li><strong>Extension settings:</strong> preferences such as selected AI provider, context settings, pinned context, Quick Ask actions, theme preferences, and other DinSide configuration.</li>
-      <li><strong>Provider session information:</strong> for Xiaomi MiMo Studio only, DinSide may read and mirror the non-HttpOnly <code>xiaomichatbot_ph</code> cookie for <code>aistudio.xiaomimimo.com</code> into the Chrome partition used by the embedded MiMo page. This lets the side-panel iframe recognize the same provider session as a normal MiMo tab. DinSide does not intentionally read or copy MiMo HttpOnly cookies, passwords, or unrelated authentication cookies.</li>
+      <li><strong>Extension settings:</strong> preferences such as selected AI provider, provider/model preferences, context settings, pinned context, Quick Ask actions, theme preferences, and other DinSide configuration. For supported Claude integrations, model, effort, and thinking preferences may be stored locally so the selection persists across browser sessions.</li>
+      <li><strong>Provider session information:</strong> for Xiaomi MiMo Studio, DinSide may read and mirror the non-HttpOnly <code>xiaomichatbot_ph</code> cookie for <code>aistudio.xiaomimimo.com</code> into the Chrome partition used by the embedded MiMo page. This lets the side-panel iframe recognize the same provider session as a normal MiMo tab. For Z.ai, DinSide may detect when the provider's local sign-in token changes so it can refresh the embedded provider after sign-in; DinSide does not copy, persist, or transmit that Z.ai token. DinSide does not intentionally read or copy MiMo HttpOnly cookies, passwords, or unrelated authentication cookies.</li>
     </ul>
 
     <h2>How information is used</h2>
@@ -47,7 +47,7 @@
 
     <h2>Permissions</h2>
     <p>DinSide requests Chrome permissions only to provide its browser-context, side-panel, and supported AI-provider integration features. These permissions may include access to the active tab, browser tabs and favicons, local storage, scripting, the clipboard, browsing data, cookies, the side panel, supported AI-provider hosts, and network/declarative rules required for supported provider integrations.</p>
-    <p>DinSide uses host access to read context from webpages the user chooses to work with and to enable supported AI services inside the side panel. Broad webpage access is required because users may request context from websites they browse, rather than from a fixed list of sites. Clipboard access is used for user-requested context workflows, including selection handling on supported pages, and browsing-data access is used for user-initiated provider reset or sign-out related actions. The cookies permission is used only for the MiMo session behavior described above. DinSide does not use these permissions for unrelated monitoring, advertising, or collection of browsing activity.</p>
+    <p>DinSide uses host access to read context from webpages the user chooses to work with and to enable supported AI services inside the side panel. Broad webpage access is required because users may request context from websites they browse, rather than from a fixed list of sites. Clipboard access is used for user-requested context workflows, including selection handling on supported pages, and browsing-data access is used for user-initiated provider reset or sign-out related actions. The cookies permission is used only for the MiMo session behavior described above; Z.ai sign-in completion detection does not use the Chrome cookies permission. DinSide does not use these permissions for unrelated monitoring, advertising, or collection of browsing activity.</p>
 
     <h2>Security and Limited Use</h2>
     <p>DinSide limits access to user data to what is necessary for its disclosed user-facing features and uses secure HTTPS provider origins for transmitted content. DinSide's use and transfer of information received from Chrome extension APIs and supported provider pages adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
