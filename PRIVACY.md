@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: September 11, 2026_
+_Last updated: October 8, 2026_
 
 DinSide is a Chrome extension that helps users bring relevant browser context into AI chat services they choose to use, such as ChatGPT, Gemini, Claude, and Perplexity.
 
@@ -10,11 +10,12 @@ DinSide may process the following information only to provide its core functiona
 
 - **Web history data:** page URLs, page titles, and information about browser tabs that the user chooses to include as context.
 - **Website content:** visible page text, selected text, page content, screenshots, and other webpage content that the user chooses to send as context.
+- **User-selected document attachments:** file links, filenames, and contents selected by the user from webpages, PDF viewers, Google Drive, or Google Docs. DinSide may retrieve original files or export Google Docs as DOCX and attach them through the selected AI provider upload interface. Visiting a page does not automatically upload its files.
 - **Extension settings:** preferences such as selected AI provider, context settings, pinned context, and other DinSide configuration.
 
 ## How information is used
 
-DinSide uses this information only to provide browser context to the AI service selected by the user, support features such as page context, selected-text actions, screenshots, pinned context, and open-tab context, and remember extension preferences and settings.
+DinSide uses this information only to provide browser context to the AI service selected by the user, support features such as page context, selected-text actions, screenshots, pinned context, open-tab context, user-selected document attachments, and remember extension preferences and settings.
 
 DinSide does **not** use this information for advertising, profiling, creditworthiness, or unrelated purposes.
 
@@ -30,11 +31,11 @@ DinSide does not transfer user data to third parties except as necessary to prov
 
 DinSide stores extension settings and selected configuration locally in the browser where possible.
 
-DinSide does not operate its own remote server for storing the webpage content users send through the extension.
+DinSide does not operate its own remote server for storing the webpage content or file attachments users send through the extension.
 
 ## User control
 
-Users control what context is included. Depending on the feature used, users can choose whether to include page content, viewport content, selected text, screenshots, pinned context, or open browser tabs. Users can remove or clear context before sending it to an AI provider.
+Users control what context is included. Depending on the feature used, users can choose whether to include page content, viewport content, selected text, screenshots, pinned context, open browser tabs, or file attachments. Users can remove or clear context before sending it to an AI provider.
 
 ## Permissions
 
