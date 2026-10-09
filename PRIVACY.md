@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: October 8, 2026_
+_Last updated: October 9, 2026 — DinSide 0.6.15_
 
 DinSide is a Chrome extension that helps users bring relevant browser context into AI chat services they choose to use, such as ChatGPT, Gemini, Claude, and Perplexity.
 
@@ -8,16 +8,27 @@ DinSide is a Chrome extension that helps users bring relevant browser context in
 
 DinSide may process the following information only to provide its core functionality:
 
-- **Web history data:** page URLs, page titles, and information about browser tabs that the user chooses to include as context.
-- **Website content:** visible page text, selected text, page content, screenshots, and other webpage content that the user chooses to send as context.
-- **User-selected document attachments:** file links, filenames, and contents selected by the user from webpages, PDF viewers, Google Drive, or Google Docs. DinSide may retrieve original files or export Google Docs as DOCX and attach them through the selected AI provider upload interface. Visiting a page does not automatically upload its files.
-- **Extension settings:** preferences such as selected AI provider, context settings, pinned context, and other DinSide configuration.
+- **Web history data:** page URLs, page titles, favicons, and information about browser tabs that the user chooses to include as context, including whether a pinned source tab remains open or has navigated to another page.
+- **Website content:** visible page text, selected text, page content, screenshots, and other webpage content that the user chooses to include as context.
+- **User-selected file attachments:** file links, filenames, file type metadata and contents selected from webpages, file viewers, Google Drive or supported document applications. These can include documents, code, structured data, images, audio, video and archives. DinSide retrieves originals or prepares supported exports, then passes the selected file to the current AI provider's upload interface. Visiting a page does not automatically upload files.
+- **Extension settings:** preferences such as selected AI provider, provider/model preferences, context settings, pinned context, Quick Ask actions, theme preferences, Skills, Favorites and other DinSide configuration. For supported Claude integrations, model, effort and thinking preferences may be stored locally so the selection persists across browser sessions.
+- **Provider session information:** for Xiaomi MiMo Studio, DinSide may read and mirror the non-HttpOnly `xiaomichatbot_ph` cookie for `aistudio.xiaomimimo.com` into the Chrome partition used by the embedded MiMo page. This lets the side-panel iframe recognize the same provider session as a normal MiMo tab. For Z.ai, DinSide may detect when the provider's local sign-in token changes so it can refresh the embedded provider after sign-in; DinSide does not copy, persist or transmit that Z.ai token. DinSide does not intentionally read or copy MiMo HttpOnly cookies, passwords or unrelated authentication cookies.
 
 ## How information is used
 
-DinSide uses this information only to provide browser context to the AI service selected by the user, support features such as page context, selected-text actions, screenshots, pinned context, open-tab context, user-selected document attachments, and remember extension preferences and settings.
+DinSide uses this information only to provide browser context to the AI service selected by the user, support user-requested page, viewport, selection, screenshot, pinned-page, open-tab, Smart Context and Quick Ask workflows, retrieve and attach selected files, maintain supported provider sessions inside the side panel, and remember extension preferences.
 
 DinSide does **not** use this information for advertising, profiling, creditworthiness, or unrelated purposes.
+
+## Selected files and document exports
+
+Retrieval starts after a file is selected and reaches its turn in the attachment queue. Source requests use the access already available in the user's browser and may include the browser's existing source-site credentials. DinSide does not request new Drive OAuth access for these exports. Where needed, it invokes the selected website's Download/Export control and captures the resulting file URL or data temporarily. That website may also perform its normal download or export actions.
+
+Supported Google files may be exported as Word, Excel, PowerPoint, PDF, MP4, JPEG, project JSON or KML. Colab notebooks and saved AI Studio prompts retain their source data, including notebook outputs or saved prompt settings and inputs; DinSide does not execute cells or run prompts. Downloadable Gem, Conversation and layout data may be converted to JSON retaining readable text, settings and unknown configuration fields, or retained as HTML when provided as an explicit download.
+
+Forms and Sites PDF exports may open temporary inactive browser tabs and retrieve images or backgrounds referenced by the selected document. Forms exports include printed questions, sections, options and images, clear answer controls and do not fetch form responses. Sites exports include the selected site's editor page tree, including pages hidden from navigation. Embedded videos and documents become references rather than separately downloaded files. Rendering libraries and fonts are packaged with the extension; no remote PDF rendering service is used. Source websites can record these requests, and temporary tabs may leave ordinary browser history entries.
+
+PDF viewport context is separate from a whole-file attachment. It reads visible text exposed by an accessible viewer and does not attach screenshots, perform OCR or download the whole PDF through that viewport workflow. An original PDF selected for attachment retains its full file contents, including scanned page images.
 
 ## Data sharing
 
@@ -25,21 +36,35 @@ DinSide does not sell user data.
 
 When the user chooses to send context to an AI provider, the selected context may be transmitted to or inserted into the AI service selected by the user. Those services process information according to their own privacy policies and terms.
 
+Selecting a file starts upload to the current AI provider as soon as its queued transfer runs. The provider can receive and process the file before a chat message is sent. DinSide does not automatically submit a chat message. Removing an attachment or cancelling a transfer cannot undo data the provider has already received, and retention is governed by that provider.
+
+For supported embedded provider experiences, DinSide may interact directly with that provider's website in the user's browser. DinSide does not transfer the MiMo session identifier described above to DinSide-operated servers; it is mirrored only within Chrome's cookie storage for the same MiMo domain and the extension's embedded partition.
+
 DinSide does not transfer user data to third parties except as necessary to provide the functionality explicitly requested by the user.
 
 ## Data storage
 
-DinSide stores extension settings and selected configuration locally in the browser where possible.
+DinSide stores extension settings, preferences and user-selected context configuration locally in the browser where possible.
 
-DinSide does not operate its own remote server for storing the webpage content or file attachments users send through the extension.
+Attachment bytes, generated PDFs and temporary download-capture data are processed in memory rather than saved to extension storage. DinSide releases its temporary capture hooks and closes owned export tabs after completion, failure or cancellation. Normal browser caching, source-site download behavior and the selected AI provider's storage still apply.
+
+DinSide does not operate its own remote server for storing webpage content, selected text, screenshots, file attachments, provider session cookies or other browser context users send through the extension.
 
 ## User control
 
-Users control what context is included. Depending on the feature used, users can choose whether to include page content, viewport content, selected text, screenshots, pinned context, open browser tabs, or file attachments. Users can remove or clear context before sending it to an AI provider.
+Users control what context is included. Depending on the feature used, users can choose whether to include full-page or Smart Context content, viewport content, selected text, screenshots, pinned context, open browser tabs or file attachments. Users can remove, clear or change context before sending a message and use the AI provider's own controls to remove attachments.
+
+Users can finish file selection while already selected files continue attaching, or cancel active and queued transfers using the attachment notification. DinSide stops its transfer and attempts to remove the newly handed-off attachment when the provider exposes a remove control. Cancellation does not reverse completed provider uploads or stop arbitrary export work already started by the source website. Owned export tabs are closed, but browser history and external retention are not erased by cancellation.
 
 ## Permissions
 
-DinSide requests Chrome permissions only to provide its browser-context and side-panel features. These permissions may include access to the active tab, tabs, storage, scripting, the side panel, supported AI provider hosts, and network rules required for supported provider integrations.
+DinSide requests Chrome permissions only to provide its browser-context, side-panel and supported AI-provider integration features. These permissions may include access to the active tab, browser tabs and favicons, local storage, scripting, the clipboard, browsing data (limited to Perplexity service-worker cleanup), cookies, the side panel, supported AI-provider hosts, and network/declarative rules required for supported provider integrations.
+
+DinSide uses host access to read context from webpages the user chooses to work with, retrieve selected files and exports, and enable supported AI services inside the side panel. Broad webpage access is required because users may request context or files from websites they browse rather than from a fixed list of sites. Clipboard access is used for user-requested context workflows, including selection handling on supported pages. Browsing-data access is used for targeted removal of Perplexity service-worker registrations for `perplexity.ai` and `www.perplexity.ai` while preparing its embedded side-panel view. This does not clear general browsing history, cookies or unrelated sites' data. The cookies permission is used only for the MiMo session behavior described above; Z.ai sign-in completion detection does not use the Chrome cookies permission. DinSide does not use these permissions for unrelated monitoring, advertising or collection of browsing activity.
+
+## Security and Limited Use
+
+DinSide limits access to user data to what is necessary for its disclosed user-facing features and uses secure HTTPS provider origins for transmitted content. DinSide's use and transfer of information received from Chrome extension APIs and supported provider pages adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.
 
 ## Children's privacy
 
