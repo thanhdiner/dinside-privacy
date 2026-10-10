@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: October 9, 2026 — DinSide 0.6.15_
+_Last updated: October 10, 2026 — DinSide 0.6.15_
 
 DinSide is a Chrome extension that helps users bring relevant browser context into AI chat services they choose to use, such as ChatGPT, Gemini, Claude, and Perplexity.
 
@@ -12,6 +12,7 @@ DinSide may process the following information only to provide its core functiona
 - **Website content:** visible page text, selected text, page content, screenshots, and other webpage content that the user chooses to include as context.
 - **User-selected file attachments:** file links, filenames, file type metadata and contents selected from webpages, file viewers, Google Drive or supported document applications. These can include documents, code, structured data, images, audio, video and archives. DinSide retrieves originals or prepares supported exports, then passes the selected file to the current AI provider's upload interface. Visiting a page does not automatically upload files.
 - **Extension settings:** preferences such as selected AI provider, provider/model preferences, context settings, pinned context, Quick Ask actions, theme preferences, Skills, Favorites and other DinSide configuration. For supported Claude integrations, model, effort and thinking preferences may be stored locally so the selection persists across browser sessions.
+- **Chat tab metadata:** when Multiple chat tabs is enabled, DinSide remembers the open tab list, selected providers, custom tab names, provider numbers, tab order, active tab and supported saved conversation URLs locally to reopen them after a panel or extension reload or browser restart.
 - **Provider session information:** for Xiaomi MiMo Studio, DinSide may read and mirror the non-HttpOnly `xiaomichatbot_ph` cookie for `aistudio.xiaomimimo.com` into the Chrome partition used by the embedded MiMo page. This lets the side-panel iframe recognize the same provider session as a normal MiMo tab. For Z.ai, DinSide may detect when the provider's local sign-in token changes so it can refresh the embedded provider after sign-in; DinSide does not copy, persist or transmit that Z.ai token. DinSide does not intentionally read or copy MiMo HttpOnly cookies, passwords or unrelated authentication cookies.
 
 ## How information is used
@@ -46,6 +47,8 @@ DinSide does not transfer user data to third parties except as necessary to prov
 
 DinSide stores extension settings, preferences and user-selected context configuration locally in the browser where possible.
 
+Chat tab metadata is stored in the browser's local extension storage. Restoring a tab opens its provider's normal web page; the active tab loads first and other restored pages load when selected. DinSide does not include message contents, unsent prompt drafts, attachment bytes or temporary chat context in this saved tab list. Recovery of saved conversations depends on the provider; temporary chats and unsent work are not recovered by tab metadata. The last saved tab set is shared across DinSide panels in the browser profile.
+
 Attachment bytes, generated PDFs and temporary download-capture data are processed in memory rather than saved to extension storage. DinSide releases its temporary capture hooks and closes owned export tabs after completion, failure or cancellation. Normal browser caching, source-site download behavior and the selected AI provider's storage still apply.
 
 DinSide does not operate its own remote server for storing webpage content, selected text, screenshots, file attachments, provider session cookies or other browser context users send through the extension.
@@ -53,6 +56,8 @@ DinSide does not operate its own remote server for storing webpage content, sele
 ## User control
 
 Users control what context is included. Depending on the feature used, users can choose whether to include full-page or Smart Context content, viewport content, selected text, screenshots, pinned context, open browser tabs or file attachments. Users can remove, clear or change context before sending a message and use the AI provider's own controls to remove attachments.
+
+Closing a chat tab removes its entry from the locally saved tab list. Disabling Multiple chat tabs clears the saved list and keeps only the active live frame. This tab restoration is separate from Keep chat on reopen, which controls the existing single-chat workflow.
 
 Users can finish file selection while already selected files continue attaching, or cancel active and queued transfers using the attachment notification. DinSide stops its transfer and attempts to remove the newly handed-off attachment when the provider exposes a remove control. Cancellation does not reverse completed provider uploads or stop arbitrary export work already started by the source website. Owned export tabs are closed, but browser history and external retention are not erased by cancellation.
 
