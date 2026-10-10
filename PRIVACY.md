@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: October 10, 2026 — DinSide 0.6.15_
+_Last updated: October 10, 2026 — DinSide 0.6.16_
 
 DinSide is a Chrome extension that helps users bring relevant browser context into AI chat services they choose to use, such as ChatGPT, Gemini, Claude, and Perplexity.
 

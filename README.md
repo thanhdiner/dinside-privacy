@@ -2,7 +2,7 @@
 
 Public privacy policy site for the DinSide Chrome extension.
 
-The policy describes **DinSide 0.6.15**, updated **October 10, 2026**. Keep `PRIVACY.md` and the visible policy text in `index.html` synchronized. It covers selected file uploads, Google native exports, temporary render tabs, browser/provider retention, cancellation limits and locally saved chat-tab metadata. Tab restoration saves providers, labels, order and supported conversation URLs; it does not save message contents, prompt drafts or attachment bytes.
+The policy describes **DinSide 0.6.16**, updated **October 10, 2026**. Keep `PRIVACY.md` and the visible policy text in `index.html` synchronized. It covers selected file uploads, Google native exports, temporary render tabs, browser/provider retention, cancellation limits and locally saved chat-tab metadata. Tab restoration saves providers, labels, order and supported conversation URLs; it does not save message contents, prompt drafts or attachment bytes.
 
 ## GitHub Pages
 
