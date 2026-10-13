@@ -17,14 +17,14 @@
   <main><section class="card">
     <div class="brand">DinSide</div>
     <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: October 10, 2026 — DinSide 0.6.16</p>
+    <p class="muted">Last updated: October 14, 2026 — DinSide 0.6.17</p>
     <p>DinSide brings relevant browser context and user-selected files into supported AI chat services in Chrome's side panel, allowing users to ask questions, summarize, explain, translate, and work with the pages and documents they are browsing.</p>
 
     <h2>Information DinSide processes</h2>
     <p>DinSide may process the following information only to provide its core functionality:</p>
     <ul>
       <li><strong>Web history data:</strong> page URLs, page titles, favicons, and information about browser tabs that the user chooses to include as context, including whether a pinned source tab remains open or has navigated to another page.</li>
-      <li><strong>Website content:</strong> visible page text, selected text, page content, screenshots, and other webpage content that the user chooses to include as context.</li>
+      <li><strong>Website content:</strong> visible page text, selected text, page content, chosen page images, screenshots, selected capture regions, user-drawn screenshot annotations, and other webpage content that the user chooses to include as context.</li>
       <li><strong>Prompt text and personal communications:</strong> Prompt text entered in a supported AI chat composer is read and prepared when the user sends a message or invokes an extension action, so it can be combined with enabled browser context. User-selected page content and files can include personal communications, such as chat messages or emails.</li>
       <li><strong>User activity and viewport state:</strong> When viewport context is enabled or requested, DinSide may process the source page's scroll position, selected text, viewport dimensions, visible media playback state and metadata, text or available values from the focused element. These details help the selected AI service understand which part of the page the user is referring to.</li>
       <li><strong>Clipboard selection data:</strong> Supported Google Docs and document-viewer selection workflows may temporarily read the previous clipboard contents and copy user-selected text when direct selection access is unavailable. Previous clipboard contents are used only to attempt restoration, not as AI context.</li>
@@ -35,12 +35,12 @@
     </ul>
 
     <h2>How information is used</h2>
-    <p>DinSide uses this information only to provide browser context to the AI service selected by the user, support user-requested page, viewport, selection, screenshot, pinned-page, open-tab, Smart Context and Quick Ask workflows, retrieve and attach selected files, maintain supported provider sessions inside the side panel, and remember extension preferences.</p>
+    <p>DinSide uses this information only to provide browser context to the AI service selected by the user, support user-requested page, viewport, selection, image selection, screenshot, region capture, on-page drawing, pinned-page, open-tab, Smart Context and Quick Ask workflows, retrieve and attach selected files, maintain supported provider sessions inside the side panel, and remember extension preferences.</p>
     <p>DinSide does <strong>not</strong> use this information for advertising, profiling, creditworthiness, or unrelated purposes.</p>
 
     <h2>Prompt and viewport context</h2>
     <p>DinSide combines the user's prompt with the context enabled or selected for that action and delivers the resulting prompt to the selected AI service. Prompt text and selected communications are subject to that service's policies. DinSide does not operate its own server for storing this content.</p>
-    <p>Focused form-field values can contain sensitive information. In DinSide 0.6.16, viewport capture does not filter focused input values by input type, so a focused password field's value may be included in viewport context and delivered to the selected AI service when that context is sent. Users can turn off page context when working with sensitive forms.</p>
+    <p>Focused form-field values can contain sensitive information. In DinSide 0.6.17, viewport capture does not filter focused input values by input type, so a focused password field's value may be included in viewport context and delivered to the selected AI service when that context is sent. Users can turn off page context when working with sensitive forms.</p>
 
     <h2>Clipboard selection workflows</h2>
     <p>When Selected text context is enabled, supported Google Docs and document viewers may use a selection-copy workflow to obtain text selected by the user. DinSide may temporarily snapshot the previous clipboard contents and attempts to restore them after the copy operation. It does not continuously monitor the clipboard or use the previous clipboard contents as AI context. Restoration may be incomplete or fail because of browser permissions or source-application behavior. Explicit copy actions, such as copying support information, also write to the clipboard.</p>
@@ -69,7 +69,7 @@
     <p>DinSide does not operate its own remote server for storing webpage content, selected text, screenshots, file attachments, provider session cookies or other browser context users send through the extension.</p>
 
     <h2>User control</h2>
-    <p>Users control what context is included. Depending on the feature used, users can choose whether to include full-page or Smart Context content, viewport content, selected text, screenshots, pinned context, open browser tabs or file attachments. Users can remove, clear or change context before sending a message and use the AI provider's own controls to remove attachments.</p>
+    <p>Users control what context is included. Depending on the feature used, users can choose whether to include full-page or Smart Context content, viewport content, selected text, chosen page images, screenshots, captured regions with optional drawings, pinned context, open browser tabs or file attachments. Users can remove, clear or change context before sending a message and use the AI provider's own controls to remove attachments.</p>
     <p>Closing a chat tab removes its entry from the locally saved tab list. Disabling Multiple chat tabs clears the saved list and keeps only the active live frame. This tab restoration is separate from Keep chat on reopen, which controls the existing single-chat workflow.</p>
     <p>Users can finish file selection while already selected files continue attaching, or cancel active and queued transfers using the attachment notification. DinSide stops its transfer and attempts to remove the newly handed-off attachment when the provider exposes a remove control. Cancellation does not reverse completed provider uploads or stop arbitrary export work already started by the source website. Owned export tabs are closed, but browser history and external retention are not erased by cancellation.</p>
 
