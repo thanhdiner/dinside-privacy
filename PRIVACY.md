@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: October 17, 2026 — DinSide 0.6.18_
+_Last updated: October 17, 2026 — DinSide 0.6.19_
 
 DinSide brings relevant browser context and user-selected files into supported AI chat services in Chrome's side panel, allowing users to ask questions, summarize, explain, translate, and work with the pages and documents they are browsing.
 
@@ -29,7 +29,7 @@ DinSide does **not** use this information for advertising, profiling, creditwort
 
 DinSide combines the user's prompt with the context enabled or selected for that action and delivers the resulting prompt to the selected AI service. Prompt text and selected communications are subject to that service's policies. DinSide does not operate its own server for storing this content.
 
-Focused form-field values can contain sensitive information. In DinSide 0.6.18, viewport capture does not filter focused input values by input type, so a focused password field's value may be included in viewport context and delivered to the selected AI service when that context is sent. Users can turn off page context when working with sensitive forms.
+Focused form-field values can contain sensitive information. In DinSide 0.6.19, viewport capture does not filter focused input values by input type, so a focused password field's value may be included in viewport context and delivered to the selected AI service when that context is sent. Users can turn off page context when working with sensitive forms.
 
 ## Clipboard selection workflows
 
@@ -38,6 +38,8 @@ When Selected text context is enabled, supported Google Docs and document viewer
 ## Selected files and document exports
 
 Users can also drag desktop files, webpage images, selected text or links into an embedded chat. Native provider drop handling keeps priority; DinSide supplies a fallback where the provider does not handle the drop. File/image fallback starts retrieval and upload after the trusted drop, and can use the browser's existing source-site credentials to retrieve an image URL. Dropped text is inserted as plain text while preserving the existing draft; supplied HTML is not executed. DinSide does not click Send for a drop. Upload availability, accepted formats and retention remain subject to the selected provider. Files and loaded image bytes are processed in memory, not saved as local attachment copies by DinSide.
+
+For recognized file links or file cards dragged from the current webpage, DinSide temporarily holds the selected item's URL, filename, source tab/window and page URL in memory. An opaque drag token expires after three minutes and can be claimed once by the panel in the same window. File contents are retrieved only after the item is dropped into a chat, using the same download/export mechanisms as Select file. Temporary tokens and source-control markers are released after completion, cancellation or expiry. Browser-supplied image files are used directly when available, including images with blob URLs.
 
 Retrieval starts after a file is selected and reaches its turn in the attachment queue. Source requests use the access already available in the user's browser and may include the browser's existing source-site credentials. DinSide does not request new Drive OAuth access for these exports. Where needed, it invokes the selected website's Download/Export control and captures the resulting file URL or data temporarily. That website may also perform its normal download or export actions.
 
@@ -49,7 +51,7 @@ PDF viewport context is separate from a whole-file attachment. It reads visible 
 
 ## Conversation transfers
 
-Transfer conversation is free and unlimited in 0.6.18 and requires no DinSide account. Opening its preview captures and saves source history locally without sending a provider message. Users can choose loaded, full or recent history, select individual messages and edit the prepared text. Confirming Continue & send opens a destination, replaces its restored draft and pending attachments, fills the reviewed context and clicks the provider's Send control. NotebookLM may create a notebook and Muse may create a side chat. The source conversation and its draft are preserved. Original files and images must be attached separately.
+Transfer conversation is free and unlimited in 0.6.19 and requires no DinSide account. Opening its preview captures and saves source history locally without sending a provider message. Users can choose loaded, full or recent history, select individual messages and edit the prepared text. Confirming Continue & send opens a destination, replaces its restored draft and pending attachments, fills the reviewed context and clicks the provider's Send control. NotebookLM may create a notebook and Muse may create a side chat. The source conversation and its draft are preserved. Original files and images must be attached separately.
 
 Captured conversations can contain personal or sensitive information. The selected destination provider processes confirmed transfers under its own policies. Clear local history in the transfer preview deletes DinSide's captured transfer records; it does not delete source or destination conversations held by AI providers.
 
@@ -81,7 +83,7 @@ Chat tab metadata is stored in the browser's local extension storage. Restoring 
 
 Attachment bytes, generated PDFs and temporary download-capture data are processed in memory rather than saved to extension storage. DinSide releases its temporary capture hooks and closes owned export tabs after completion, failure or cancellation. Normal browser caching, source-site download behavior and the selected AI provider's storage still apply.
 
-Release 0.6.18 disables DinSide sign-in, paid-plan controls, checkout and cloud sync and does not contact DinSide account, quota, billing or sync services. It does not upload browser context or transfer history to a DinSide cloud service. Earlier development builds may have saved an account session, cloud consent, local recovery history or remote sync copies; disabling these features preserves existing records rather than deleting them. Provider websites continue to operate their own login and data storage.
+Release 0.6.19 disables DinSide sign-in, paid-plan controls, checkout and cloud sync and does not contact DinSide account, quota, billing or sync services. It does not upload browser context or transfer history to a DinSide cloud service. Earlier development builds may have saved an account session, cloud consent, local recovery history or remote sync copies; disabling these features preserves existing records rather than deleting them. Provider websites continue to operate their own login and data storage.
 
 ## User control
 
@@ -93,7 +95,7 @@ Users can finish file selection while already selected files continue attaching,
 
 ## Permissions
 
-Version 0.6.18 does not request the identity permission because DinSide account sign-in is disabled. AI provider sign-in continues through the provider's own website.
+Version 0.6.19 does not request the identity permission because DinSide account sign-in is disabled. AI provider sign-in continues through the provider's own website.
 
 DinSide requests Chrome permissions only to provide its browser-context, side-panel and supported AI-provider integration features. These permissions may include access to the active tab, browser tabs and favicons, local storage, scripting, the clipboard, browsing data (limited to Perplexity service-worker cleanup), cookies, the side panel, supported AI-provider hosts, and network/declarative rules required for supported provider integrations.
 
