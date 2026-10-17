@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: October 15, 2026_
+_Last updated: October 17, 2026 — DinSide 0.6.18_
 
 DinSide brings relevant browser context and user-selected files into supported AI chat services in Chrome's side panel, allowing users to ask questions, summarize, explain, translate, and work with the pages and documents they are browsing.
 
@@ -16,27 +16,12 @@ DinSide may process the following information only to provide its core functiona
 - **User-selected file attachments:** file links, filenames, file type metadata and contents selected from webpages, file viewers, Google Drive or supported document applications. These can include documents, code, structured data, images, audio, video and archives. DinSide retrieves originals or prepares supported exports, then passes the selected file to the current AI provider's upload interface. Visiting a page does not automatically upload files.
 - **Extension settings:** preferences such as selected AI provider, provider/model preferences, context settings, pinned context, Quick Ask actions, theme preferences, Skills, Favorites and other DinSide configuration. For supported Claude integrations, model, effort and thinking preferences may be stored locally so the selection persists across browser sessions.
 - **Chat tab metadata:** when Multiple chat tabs is enabled, DinSide remembers the open tab list, selected providers, custom tab names, provider numbers, tab order, active tab and supported saved conversation URLs locally to reopen them after a panel or extension reload or browser restart.
-- **Optional DinSide account information:** When a build offers optional Google sign-in, DinSide may receive an account identifier, email address, display name and profile picture URL through Google and Supabase Auth. Supabase processes authentication sessions and related security information. DinSide does not request the user's Google password.
-- **Account access status:** Signed-in DinSide accounts may have a Free/Pro entitlement or related access status used to determine which account features are available. This does not mean paid subscriptions or checkout have launched.
+- **Conversation transfer history:** when the user opens Transfer conversation, DinSide captures conversation text, user/assistant roles, context notes, code, links and attachment references from the source AI page. It saves canonical transcripts, source-message identifiers, fingerprints and prepared transfer text locally so later transfers can preserve earlier context. Full history and Recent modes may scroll the source page to load additional messages. Original attachment bytes are not included in a transfer.
 - **Provider session information (authentication information):** for Xiaomi MiMo Studio, DinSide may read and mirror the non-HttpOnly `xiaomichatbot_ph` cookie for `aistudio.xiaomimimo.com` into the Chrome partition used by the embedded MiMo page. This lets the side-panel iframe recognize the same provider session as a normal MiMo tab. For Z.ai, DinSide may detect when the provider's local sign-in token changes so it can refresh the embedded provider after sign-in; DinSide does not copy, persist or transmit that Z.ai token. The MiMo session helper does not intentionally read or copy HttpOnly cookies, passwords or unrelated authentication cookies; the separate viewport workflow is described below.
-
-## Optional DinSide account sign-in
-
-Local-first DinSide features can be used without creating or signing in to a DinSide account. Where available in the installed extension version, signing in with Google is optional. Google handles account selection and consent, and Supabase Auth handles DinSide account authentication. DinSide may use your account identifier, name, email address, profile image URL and basic access status to recognize your account, display account information, maintain sign-in and determine feature access.
-
-Authentication/session information may be stored locally in the browser to maintain a signed-in session. Supabase may retain the associated account record, linked provider identity, authentication events and session/security records. These services also process information under their own policies: [Google Privacy Policy](https://policies.google.com/privacy) and [Supabase Privacy Policy](https://supabase.com/privacy).
-
-Signing in to DinSide does **not** by itself upload browsed-page content, selected text, prompts, AI conversations, screenshots or file attachments to DinSide's Supabase project. Content is still passed to an AI provider only as described in the context and file workflows below. DinSide account sign-in is separate from the accounts used inside embedded third-party AI services.
-
-Signing out ends the local DinSide account session but does not necessarily delete the account record held by Supabase. For questions about account information or requests to access or delete it, use the support contact on the DinSide Chrome Web Store listing.
-
-## Subscription and cloud features
-
-Subscription checkout, payment processing and optional cloud synchronization are not described here as already launched. When these features become available, DinSide will update this policy with the applicable payment or hosting providers, data categories, retention and user choices before they are offered.
 
 ## How information is used
 
-DinSide uses this information only to provide browser context to the AI service selected by the user, support user-requested page, viewport, selection, screenshot, pinned-page, open-tab, Smart Context and Quick Ask workflows, retrieve and attach selected files, maintain supported provider sessions inside the side panel, and remember extension preferences. Where optional DinSide account sign-in is available and used, account information is also used for authentication, session continuity, account display and access-status checks.
+DinSide uses this information only to provide browser context to the AI service selected by the user, support user-requested page, viewport, selection, screenshot, pinned-page, open-tab, Smart Context and Quick Ask workflows, retrieve and attach selected files, maintain supported provider sessions inside the side panel, and remember extension preferences.
 
 DinSide does **not** use this information for advertising, profiling, creditworthiness, or unrelated purposes.
 
@@ -44,7 +29,7 @@ DinSide does **not** use this information for advertising, profiling, creditwort
 
 DinSide combines the user's prompt with the context enabled or selected for that action and delivers the resulting prompt to the selected AI service. Prompt text and selected communications are subject to that service's policies. DinSide does not operate its own server for storing this content.
 
-Focused form-field values can contain sensitive information. In DinSide 0.6.16, viewport capture does not filter focused input values by input type, so a focused password field's value may be included in viewport context and delivered to the selected AI service when that context is sent. Users can turn off page context when working with sensitive forms.
+Focused form-field values can contain sensitive information. In DinSide 0.6.18, viewport capture does not filter focused input values by input type, so a focused password field's value may be included in viewport context and delivered to the selected AI service when that context is sent. Users can turn off page context when working with sensitive forms.
 
 ## Clipboard selection workflows
 
@@ -60,6 +45,12 @@ Forms and Sites PDF exports may open temporary inactive browser tabs and retriev
 
 PDF viewport context is separate from a whole-file attachment. It reads visible text exposed by an accessible viewer and does not attach screenshots, perform OCR or download the whole PDF through that viewport workflow. An original PDF selected for attachment retains its full file contents, including scanned page images.
 
+## Conversation transfers
+
+Transfer conversation is free and unlimited in 0.6.18 and requires no DinSide account. Opening its preview captures and saves source history locally without sending a provider message. Users can choose loaded, full or recent history, select individual messages and edit the prepared text. Confirming Continue & send opens a destination, replaces its restored draft and pending attachments, fills the reviewed context and clicks the provider's Send control. NotebookLM may create a notebook and Muse may create a side chat. The source conversation and its draft are preserved. Original files and images must be attached separately.
+
+Captured conversations can contain personal or sensitive information. The selected destination provider processes confirmed transfers under its own policies. Clear local history in the transfer preview deletes DinSide's captured transfer records; it does not delete source or destination conversations held by AI providers.
+
 ## Embedded AI services
 
 DinSide displays the selected AI provider's remote web application in webpage iframes. Those services load their own remotely hosted scripts and handle provider sign-in, conversations and responses under their own terms. For Claude, a packaged MAIN-world helper imports module resources already referenced by the Claude page inside its iframe to restore the provider's native sidebar and layout. These modules run in the provider webpage rather than extension documents or the service worker, without direct access to Chrome extension APIs. Packaged provider bridges communicate with the side panel through validated message boundaries.
@@ -68,11 +59,9 @@ DinSide displays the selected AI provider's remote web application in webpage if
 
 DinSide does not sell user data.
 
-If you choose DinSide account sign-in, Google and Supabase process the account and authentication data needed to provide it. This is separate from the AI services that receive context or attachments at your request.
-
 When the user chooses to send context to an AI provider, the selected context may be transmitted to or inserted into the AI service selected by the user. Those services process information according to their own privacy policies and terms.
 
-Selecting a file starts upload to the current AI provider as soon as its queued transfer runs. The provider can receive and process the file before a chat message is sent. DinSide does not automatically submit a chat message. Removing an attachment or cancelling a transfer cannot undo data the provider has already received, and retention is governed by that provider.
+Selecting a file starts upload to the current AI provider as soon as its queued transfer runs. The provider can receive and process the file before a chat message is sent. File selection alone does not submit a chat message; the separate Continue & send action submits a conversation transfer after user confirmation. Removing an attachment or cancelling a transfer cannot undo data the provider has already received, and retention is governed by that provider.
 
 For supported embedded provider experiences, DinSide may interact directly with that provider's website in the user's browser. DinSide does not transfer the MiMo session identifier described above to DinSide-operated servers; it is mirrored only within Chrome's cookie storage for the same MiMo domain and the extension's embedded partition.
 
@@ -80,9 +69,9 @@ DinSide does not transfer user data to third parties except as necessary to prov
 
 ## Data storage
 
-DinSide stores extension settings, preferences and pinned context in the browser's local extension storage. Saved pins can include captured text, page titles, URLs, favicon URLs and pin metadata, including a pinned viewport's scroll position. Keep chat on reopen may separately save a supported conversation URL.
+Conversation transfer records are stored in extension-origin IndexedDB until the user clears local transfer history or removes the extension's data. Capturing a transcript saves message text and attachment references, not original attachment bytes. This record is separate from the chat-tab metadata below and does not expire automatically.
 
-When optional DinSide account sign-in is used, browser-local session information may be retained to keep the account signed in, while Supabase may store account and basic access-status records. This is distinct from locally stored browser context; signing in alone does not upload browser context to Supabase.
+DinSide stores extension settings, preferences and pinned context in the browser's local extension storage. Saved pins can include captured text, page titles, URLs, favicon URLs and pin metadata, including a pinned viewport's scroll position. Keep chat on reopen may separately save a supported conversation URL.
 
 Clipboard snapshots used for selection restoration are held temporarily in memory. Previous clipboard contents are not saved to extension storage or added to AI context.
 
@@ -90,11 +79,9 @@ Chat tab metadata is stored in the browser's local extension storage. Restoring 
 
 Attachment bytes, generated PDFs and temporary download-capture data are processed in memory rather than saved to extension storage. DinSide releases its temporary capture hooks and closes owned export tabs after completion, failure or cancellation. Normal browser caching, source-site download behavior and the selected AI provider's storage still apply.
 
-DinSide does not operate its own remote server for storing webpage content, selected text, screenshots, file attachments, provider session cookies or other browser context users send through the extension.
+Release 0.6.18 disables DinSide sign-in, paid-plan controls, checkout and cloud sync and does not contact DinSide account, quota, billing or sync services. It does not upload browser context or transfer history to a DinSide cloud service. Earlier development builds may have saved an account session, cloud consent, local recovery history or remote sync copies; disabling these features preserves existing records rather than deleting them. Provider websites continue to operate their own login and data storage.
 
 ## User control
-
-DinSide account sign-in is optional for local-only features. Where available, users can sign out; to request access to or deletion of server-held account information, use the support contact on DinSide's Chrome Web Store listing. Signing out does not by itself delete an account.
 
 Users control what context is included. Depending on the feature used, users can choose whether to include full-page or Smart Context content, viewport content, selected text, screenshots, pinned context, open browser tabs or file attachments. Users can remove, clear or change context before sending a message and use the AI provider's own controls to remove attachments.
 
@@ -103,6 +90,8 @@ Closing a chat tab removes its entry from the locally saved tab list. Disabling 
 Users can finish file selection while already selected files continue attaching, or cancel active and queued transfers using the attachment notification. DinSide stops its transfer and attempts to remove the newly handed-off attachment when the provider exposes a remove control. Cancellation does not reverse completed provider uploads or stop arbitrary export work already started by the source website. Owned export tabs are closed, but browser history and external retention are not erased by cancellation.
 
 ## Permissions
+
+Version 0.6.18 does not request the identity permission because DinSide account sign-in is disabled. AI provider sign-in continues through the provider's own website.
 
 DinSide requests Chrome permissions only to provide its browser-context, side-panel and supported AI-provider integration features. These permissions may include access to the active tab, browser tabs and favicons, local storage, scripting, the clipboard, browsing data (limited to Perplexity service-worker cleanup), cookies, the side panel, supported AI-provider hosts, and network/declarative rules required for supported provider integrations.
 
