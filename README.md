@@ -8,6 +8,10 @@ The policy also describes provider session handling and the retained Claude ifra
 
 ## GitHub Pages
 
+The current working copy additionally documents external drag-and-drop fallback.
+Publish these edits with the corresponding extension update; the previously
+prepared 0.6.18 ZIP does not contain the new fallback.
+
 1. Create a public GitHub repository named `dinside-privacy`.
 2. Push this folder to the repository.
 3. Open **Settings → Pages**.
