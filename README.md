@@ -2,15 +2,15 @@
 
 Public privacy policy site for the DinSide Chrome extension.
 
-The policy describes **DinSide 0.6.19**, updated **October 17, 2026**. Keep `PRIVACY.md` and the visible policy text in `index.html` synchronized. It covers prompt text, selected communications, viewport state, clipboard selection/restoration, file uploads, Google exports, temporary tabs, retention and chat-tab metadata. Conversation transfer additionally saves captured transcript text, roles, notes, attachment references and prepared text in local IndexedDB until the user clears it; confirming Continue & send submits the reviewed context to the selected provider. Original attachments are not transferred. DinSide accounts, checkout and cloud sync are disabled, and the identity permission is absent. Existing development account/cloud records are preserved but inactive.
+The policy describes **DinSide 0.6.20**, updated **October 18, 2026**. Keep `PRIVACY.md` and the visible policy text in `index.html` synchronized. It covers prompt text, selected communications, viewport state, clipboard selection/restoration, file uploads, Google exports, temporary tabs, retention and chat-tab metadata. Conversation transfer additionally saves captured transcript text, roles, notes, attachment references and prepared text in local IndexedDB until the user clears it; confirming Continue & send submits the reviewed context to the selected provider. Original attachments are not transferred. DinSide accounts, checkout and cloud sync are disabled, and the identity permission is absent. Existing development account/cloud records are preserved but inactive.
 
-The policy also describes provider session handling and the retained Claude iframe module-import flow. Current 0.6.19 viewport capture does not filter focused input values by type, which can include password values; the policy discloses this behavior. Updating this repository does not fix that extension behavior. Update the policy when the corresponding runtime fix ships.
+The policy also describes provider session handling and the retained Claude iframe module-import flow. The original 0.6.19 ZIP can include focused password values. DinSide 0.6.20 ships recognized password/authentication-field filtering, while older messages, pins and screenshots are not retroactively sanitized.
 
 ## GitHub Pages
 
-The 0.6.19 policy also covers external drag-and-drop fallback and recognized
+The 0.6.20 policy also covers external drag-and-drop fallback and recognized
 current-page file drags, including temporary source metadata, single-use tokens,
-retrieval after a trusted drop, in-memory file handling and cleanup.
+retrieval after a trusted drop, in-memory file handling and cleanup. It also covers Select on page, optional viewport images, local lossless PNG optimization and Manual conversation handoff.
 
 1. Create a public GitHub repository named `dinside-privacy`.
 2. Push this folder to the repository.
