@@ -1,6 +1,6 @@
 # DinSide Privacy Policy
 
-_Last updated: October 20, 2026 — DinSide 0.6.21_
+_Last updated: October 20, 2026 — DinSide 0.6.22_
 
 DinSide brings relevant browser context and user-selected files into supported AI chat services in Chrome's side panel, allowing users to ask questions, summarize, explain, translate, and work with the pages and documents they are browsing.
 
@@ -14,7 +14,7 @@ DinSide may process the following information only to provide its core functiona
 - **User activity and viewport state:** When viewport context is enabled or requested, DinSide may process the source page's scroll position, selected text, viewport dimensions, visible media playback state and metadata, text or available values from the focused element. These details help the selected AI service understand which part of the page the user is referring to.
 - **Clipboard selection data:** Supported Google Docs and document-viewer selection workflows may temporarily read the previous clipboard contents and copy user-selected text when direct selection access is unavailable. Previous clipboard contents are used only to attempt restoration, not as AI context.
 - **User-selected file attachments:** file links, filenames, file type metadata and contents selected from webpages, file viewers, Google Drive or supported document applications. These can include documents, code, structured data, images, audio, video and archives. DinSide retrieves originals or prepares supported exports, then passes the selected file to the current AI provider's upload interface. Visiting a page does not automatically upload files.
-- **Extension settings:** preferences such as selected AI provider, provider/model preferences, context settings, pinned context, Quick Ask actions, theme preferences, Skills, Favorites and other DinSide configuration. For supported Claude integrations, model, effort and thinking preferences may be stored locally so the selection persists across browser sessions.
+- **Extension settings:** preferences such as selected AI provider, provider/model preferences, context settings, pinned context, Quick Ask actions, theme preferences, Skills, Favorites and other DinSide configuration. Appearance profiles and imported style presets are saved in local extension settings, and users may export their style preferences to a file on their device. For supported Claude integrations, model, effort and thinking preferences may be stored locally so the selection persists across browser sessions.
 - **Chat tab metadata:** when Multiple chat tabs is enabled, DinSide remembers the open tab list, selected providers, custom tab names, provider numbers, tab order, active tab and supported saved conversation URLs locally to reopen them after a panel or extension reload or browser restart.
 - **Conversation transfer history:** when the user opens Transfer conversation, DinSide captures conversation text, user/assistant roles, context notes, code, links and attachment references from the source AI page. It saves canonical transcripts, source-message identifiers, fingerprints and prepared transfer text locally so later transfers can preserve earlier context. Full history and Recent modes may scroll the source page to load additional messages. Original attachment bytes are not included in a transfer.
 - **Provider session information (authentication information):** for Xiaomi MiMo Studio, DinSide may read and mirror the non-HttpOnly `xiaomichatbot_ph` cookie for `aistudio.xiaomimimo.com` into the Chrome partition used by the embedded MiMo page. This lets the side-panel iframe recognize the same provider session as a normal MiMo tab. For Z.ai, DinSide may detect when the provider's local sign-in token changes so it can refresh the embedded provider after sign-in; DinSide does not copy, persist or transmit that Z.ai token. The MiMo session helper does not intentionally read or copy HttpOnly cookies, passwords or unrelated authentication cookies; the separate viewport workflow is described below.
@@ -55,7 +55,7 @@ PDF viewport context is separate from a whole-file attachment. It reads visible 
 
 ## Conversation transfers
 
-Transfer conversation is free and unlimited in 0.6.21 and requires no DinSide account. Opening its preview captures and saves source history locally without sending a provider message. Users can choose loaded, full or recent history, select individual messages and edit the prepared text. Confirming Continue & send opens a destination, replaces its restored draft and pending attachments, fills the reviewed context and clicks the provider's Send control. NotebookLM may create a notebook and Muse may create a side chat. The source conversation and its draft are preserved. **Manual** transfer fills the reviewed text into the destination's draft without clicking Send, allowing the user to choose a model and send it manually. Original files and images must be attached separately.
+Transfer conversation is free and unlimited in 0.6.22 and requires no DinSide account. Opening its preview captures and saves source history locally without sending a provider message. Users can choose loaded, full or recent history, select individual messages and edit the prepared text. Confirming Continue & send opens a destination, replaces its restored draft and pending attachments, fills the reviewed context and clicks the provider's Send control. NotebookLM may create a notebook and Muse may create a side chat. The source conversation and its draft are preserved. **Manual** transfer fills the reviewed text into the destination's draft without clicking Send, allowing the user to choose a model and send it manually. Original files and images must be attached separately. Users may also export selected conversation content as Markdown, CSV, JSON, TXT, PNG or PDF files downloaded to their device. Those exports are not automatically sent to an AI provider or DinSide cloud service.
 
 Captured conversations can contain personal or sensitive information. The selected destination provider processes confirmed transfers under its own policies. Clear local history in the transfer preview deletes DinSide's captured transfer records; it does not delete source or destination conversations held by AI providers.
 
@@ -87,7 +87,7 @@ Chat tab metadata is stored in the browser's local extension storage. Restoring 
 
 Attachment bytes, generated PDFs and temporary download-capture data are processed in memory rather than saved to extension storage. DinSide releases its temporary capture hooks and closes owned export tabs after completion, failure or cancellation. Normal browser caching, source-site download behavior and the selected AI provider's storage still apply.
 
-Release 0.6.21 keeps DinSide sign-in, paid-plan controls, checkout and cloud sync disabled and does not contact DinSide account, quota, billing or sync services. It does not upload browser context or transfer history to a DinSide cloud service. Earlier development builds may have saved an account session, cloud consent, local recovery history or remote sync copies; disabling these features preserves existing records rather than deleting them. Provider websites continue to operate their own login and data storage.
+Release 0.6.22 keeps DinSide sign-in, paid-plan controls, checkout and cloud sync disabled and does not contact DinSide account, quota, billing or sync services. It does not upload browser context or transfer history to a DinSide cloud service. Earlier development builds may have saved an account session, cloud consent, local recovery history or remote sync copies; disabling these features preserves existing records rather than deleting them. Provider websites continue to operate their own login and data storage.
 
 ## User control
 
@@ -99,7 +99,7 @@ Users can finish file selection while already selected files continue attaching,
 
 ## Permissions
 
-Version 0.6.21 does not request the identity permission because DinSide account sign-in is disabled. AI provider sign-in continues through the provider's own website.
+Version 0.6.22 does not request the identity permission because DinSide account sign-in is disabled. AI provider sign-in continues through the provider's own website.
 
 DinSide requests Chrome permissions only to provide its browser-context, side-panel and supported AI-provider integration features. These permissions may include access to the active tab, browser tabs and favicons, local storage, scripting, the clipboard, browsing data (limited to Perplexity service-worker cleanup), cookies, the side panel, supported AI-provider hosts, and network/declarative rules required for supported provider integrations.
 
