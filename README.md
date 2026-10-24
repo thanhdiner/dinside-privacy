@@ -2,13 +2,13 @@
 
 Public privacy policy site for the DinSide Chrome extension.
 
-The policy describes **DinSide 0.6.23**, updated **October 22, 2026**. Keep `PRIVACY.md` and the visible policy text in `index.html` synchronized. It covers prompt text, selected communications, viewport state, clipboard selection/restoration, file uploads, Google exports, temporary tabs, retention and chat-tab metadata. Conversation transfer additionally saves captured transcript text, roles, notes, attachment references and prepared text in local IndexedDB until the user clears it; confirming Continue & send submits the reviewed context to the selected provider. Original attachments are not transferred. Version 0.6.23 also supports local conversation exports (Markdown, CSV, JSON, TXT, PNG, PDF) and locally saved appearance profiles with style import/export. DinSide accounts, checkout and cloud sync are disabled, and the identity permission is absent. Existing development account/cloud records are preserved but inactive.
+The policy describes **DinSide 0.6.24**, updated **October 24, 2026**. Keep `PRIVACY.md` and the visible policy text in `index.html` synchronized. It covers prompt text, selected communications, viewport state, clipboard selection/restoration, file uploads, Google exports, temporary tabs, retention and chat-tab metadata. Conversation transfer additionally saves captured transcript text, roles, notes, attachment references and prepared text in local IndexedDB until the user clears it; confirming Continue & send submits the reviewed context to the selected provider. Original attachments are not transferred. Version 0.6.24 also supports local conversation exports (Markdown, CSV, JSON, TXT, PNG, PDF) and locally saved appearance profiles with style import/export. DinSide accounts, checkout and cloud sync are disabled, and the identity permission is absent. Existing development account/cloud records are preserved but inactive.
 
 The policy also describes provider session handling and the retained Claude iframe module-import flow. The original 0.6.19 ZIP can include focused password values. Since DinSide 0.6.20, builds have shipped recognized password/authentication-field filtering, while older messages, pins and screenshots are not retroactively sanitized.
 
 ## GitHub Pages
 
-The 0.6.23 policy also covers external drag-and-drop fallback and recognized
+The 0.6.24 policy also covers external drag-and-drop fallback and recognized
 current-page file drags, including temporary source metadata, single-use tokens,
 retrieval after a trusted drop, in-memory file handling and cleanup. It also covers Select on page, optional viewport images, local lossless PNG optimization and Manual conversation handoff.
 
